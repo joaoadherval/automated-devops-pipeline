@@ -24,7 +24,7 @@ variable "devops_subnet" {
 
 variable "devops_security_group" {
   description = "EC2 ssh security group"
-  type = "list"
+  # type = list(string)
   default = []
 }
 
@@ -36,6 +36,15 @@ variable "key_name" {
 variable "instance_ami" {
   description = "EC2 instance ami"
   default = "ami-04505e74c0741db8d"
+}
+
+variable "availability_zone" {
+  description = "Availability Zone of the Instance"
+  default = ""
+}
+
+variable "devops_gw" {
+  default = ""
 }
 
 variable "instance_type" {

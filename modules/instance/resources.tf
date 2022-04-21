@@ -9,7 +9,7 @@ provider "aws"{
 resource "aws_network_interface" "devops_nic" {
   subnet_id       = var.devops_subnet
   private_ips     = ["10.0.1.50"]
-  security_groups = [var.devops_security_group]
+  security_groups = var.devops_security_group
 }
 
 # Assiging elastic (public) ip address to the network interface
@@ -24,7 +24,7 @@ resource "aws_eip" "jenkins_eip" {
 
 # Creating EC2 server for jenkins
 resource "aws_instance" "jenkins_server" {
-  ami             = var.ubuntu_ami_key
+  ami             = var.instance_ami
   instance_type   = var.instance_type
   availability_zone = var.availability_zone
   key_name        = var.key_name
